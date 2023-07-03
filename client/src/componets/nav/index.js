@@ -8,8 +8,7 @@ import { LOGOUT } from "../../redux/const/actionsTypes"
 
 function Nav(props) {
     const dispatch = useDispatch();
-    const [authenticated,
-        setAuthenticated] = useState(false)
+    const [authenticated, setAuthenticated] = useState(false)
 
     useEffect(() => {
         if (props.auth.authData) {
@@ -27,7 +26,9 @@ function Nav(props) {
     return (
         <nav className={NavStyles.mainNav}>
             <div>
-                <h3>Project Mangement Tool</h3>
+                <Link to="/">
+                        <h3>Project Mangement Tool</h3>
+                </Link>
                 {authenticated && <p>Welcome, {JSON.parse(localStorage.getItem("user_info"))?.result?.firstName}</p>}
             </div>
             <div>
