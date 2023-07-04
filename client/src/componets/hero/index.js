@@ -73,14 +73,14 @@ const index = () => {
               <img className='z-10' src="/frame2.png" alt="" />
             </div>
             <div className='text-center md:text-left md:space-y-5 ' >
-              <h1 className='z-10 text-xl md:text-2xl text-left '>Build the workflow you want</h1>
-              <h4 className='z-10 text-secondary text-sm text-left'>Manage your boards using Drag-n-Drop, create adittional boards and tasks.</h4>
+              <h1 className='z-10 text-xl md:text-2xl text-left '>Streamline task management</h1>
+              <h4 className='z-10 text-secondary text-sm text-left'>Ensure timely completion of project milestones and efficient progress monitoring.</h4>
             </div>
           </div>
           <div className='md:hidden z-10 flex flex-col md:flex-row items-center justify-center space-y-5 md:space-y-0 md:space-x-20  text-primary_text'>
             <div className='text-center md:text-left md:space-y-5 ' >
-              <h1 className='z-10 text-xl md:text-2xl text-center '>Build the workflow you want</h1>
-              <h4 className='z-10 text-secondary text-sm'>Manage your boards using Drag-n-Drop, create adittional boards and tasks.</h4>
+              <h1 className='z-10 text-xl md:text-2xl text-center '>Foster efficient teamwork</h1>
+              <h4 className='z-10 text-secondary text-sm'>Keep everyone informed with notifications for seamless collaboration.</h4>
             </div>
             <div>
               <img className='z-10' src="/frame2.png" alt="" />
@@ -91,8 +91,8 @@ const index = () => {
         <div>
           <div className='z-10 flex flex-col md:flex-row items-center justify-center space-y-5 md:space-y-0 md:space-x-20  text-primary_text'>
             <div className='text-center md:text-left md:space-y-5 ' >
-              <h1 className='z-10 text-xl md:text-2xl md:text-right'>Build the workflow you want</h1>
-              <h4 className='z-10 text-secondary text-sm md:text-right'>Manage your boards using Drag-n-Drop, create adittional boards and tasks.</h4>
+              <h1 className='z-10 text-xl md:text-2xl md:text-right'>Adapt to your workflow</h1>
+              <h4 className='z-10 text-secondary text-sm md:text-right'>Built custom boards, labels, and personalized workflows for a tailored experience.</h4>
             </div>
             <div>
               <img className='z-10' src="/frame3.png" alt="" />
