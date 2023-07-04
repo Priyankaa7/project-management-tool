@@ -30,7 +30,7 @@ function Login() {
     }
 
     return (
-        <div className=" backdrop-blur-2xl bg-transparent blur-2xl p-0">
+        <div className="  bg-transparent  p-0">
             <div className="">
                 <h1>Welcome back</h1>
 
