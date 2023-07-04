@@ -51,7 +51,7 @@ function Nav(props) {
                             <div className="flex items-center justify-center space-x-10" >
                                 <Link className={`d-block `} to="/account/login">Login</Link>
                                 {/* <span >or</span> */}
-                                <Link  to="account/signup">Singup</Link>
+                                <Link  to="account/signup">Sign Up</Link>
                             </div>
 
                         </div>
