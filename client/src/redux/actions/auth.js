@@ -25,7 +25,6 @@ export const signinGoogle = (accessToken, navigate) => async (dispatch)=>{
     try{
         // login user
         const ok = await api.signInGoogle(accessToken)
-        console.log({ok})
         dispatch({type : AUTH, data: ok.data})
         navigate("/")
     }catch(err){

@@ -5,7 +5,8 @@ require('dotenv').config()
 const morgan = require("morgan")
 const chalk = require("chalk")
 const userRoutes = require("./routes/userRoutes")
-
+const dashboardRoutes = require("./routes/dashboardRoutes")
+const projectRoutes = require("./routes/projectRoutes")
 const app = express()
 
 app.use(cors())
@@ -22,6 +23,8 @@ app.use(morgan(function (tokens, req, res) {
 );
 
 app.use("/users", userRoutes)
+app.use("", dashboardRoutes)
+app.use("", projectRoutes)
 
 const PORT = process.env.PORT || 5000;
 const MONGOOSE_URL = process.env.MONGO_URI;

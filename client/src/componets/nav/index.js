@@ -8,8 +8,7 @@ import { LOGOUT } from "../../redux/const/actionsTypes"
 
 function Nav(props) {
     const dispatch = useDispatch();
-    const [authenticated,
-        setAuthenticated] = useState(false)
+    const [authenticated, setAuthenticated] = useState(false)
 
     useEffect(() => {
         if (props.auth.authData) {
