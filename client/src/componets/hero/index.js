@@ -91,8 +91,8 @@ const index = () => {
         <div>
           <div className='z-10 flex flex-col md:flex-row items-center justify-center space-y-5 md:space-y-0 md:space-x-20  text-primary_text'>
             <div className='text-center md:text-left md:space-y-5 ' >
-              <h1 className='z-10 text-xl md:text-2xl md:text-right'>Adapt to your workflow</h1>
-              <h4 className='z-10 text-secondary text-sm md:text-right'>Built custom boards, labels, and personalized workflows for a tailored experience.</h4>
+              <h1 className='z-10 text-xl md:text-2xl md:text-right'>Safeguard your data</h1>
+              <h4 className='z-10 text-secondary text-sm md:text-right'>Ensure the protection of your project information with robust security measures.</h4>
             </div>
             <div>
               <img className='z-10' src="/frame3.png" alt="" />
