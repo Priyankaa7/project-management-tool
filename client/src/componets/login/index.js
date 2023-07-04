@@ -50,11 +50,11 @@ function Login() {
                 <div className="space-y-5 lg:w-full">
                     <div className="w-full space-y-2">
                         <label className="text-form_text">Email</label>
-                        <input className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={e=> setEmail(e.target.value)}  placeholder="Enter your first name" type="email" />
+                        <input className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={e=> setEmail(e.target.value)}  placeholder="Enter your email" type="email" />
                     </div>
                     <div className="w-full space-y-2">
                         <label className="text-form_text">Password</label>
-                        <input  className="w-full  p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={e=> setPassword(e.target.value)} placeholder="Enter your last name" type="password" />
+                        <input  className="w-full  p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={e=> setPassword(e.target.value)} placeholder="Enter your password" type="password" />
                     </div>
                     <div className="w-full space-x-2 flex items-center ">
                         <label className="text-form_text">Remember Me</label>
