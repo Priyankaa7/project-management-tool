@@ -63,25 +63,25 @@ function Signup() {
                 <div className="space-y-5 lg:w-full">
                     <div className="w-full space-y-2">
                         <label className="text-form_text">FRIST NAME</label>
-                        <input className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={handleChange} name="firstName" placeholder="enter your first name" type="text" />
+                        <input className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={handleChange} name="firstName" placeholder="Enter your first name" type="text" />
                     </div>
                     <div className="w-full space-y-2">
                         <label className="text-form_text">LAST NAME</label>
-                        <input name="lastName" className="w-full  p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={handleChange} placeholder="enter your last name" type="text" />
+                        <input name="lastName" className="w-full  p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={handleChange} placeholder="Enter your last name" type="text" />
                     </div>
                     <div className="w-full space-y-2">
                         <label className="text-form_text">Email</label>
-                        <input name="email" className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={handleChange} placeholder="enter your email" type="email" />
+                        <input name="email" className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={handleChange} placeholder="Enter your email" type="email" />
                     </div>
 
                     <div className="w-full space-y-2">
                         <label className="text-form_text">Password</label>
-                        <input name="password" className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={handleChange} placeholder="enter your password" type="password" />
+                        <input name="password" className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={handleChange} placeholder="Enter your password" type="password" />
                     </div>
 
                     <div className="w-full space-y-2">
                         <label className="text-form_text">Confirm Password</label>
-                        <input name="confirmPassword" className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={handleChange} placeholder="Re enter password" type="password" />
+                        <input name="confirmPassword" className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={handleChange} placeholder="Re-enter password" type="password" />
                     </div>
 
                     <div className="space-x-2 flex flex-col space-y-5 items-center justify-center px-10">
