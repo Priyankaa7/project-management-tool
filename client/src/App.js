@@ -12,7 +12,7 @@ import Project from "./componets/project"
 
 function App() {
   return (
-    <div className="font-['Poppins'] relative">
+    <div className="font-['Poppins'] relative bg-black">
       <Nav/>
       <Routes>
         {/* <Route path="/" element = {<Hero/>}/> */}

@@ -76,21 +76,21 @@ function Project(props) {
         // console.log({board})
     }, [board])
     return (
-        <>
+        <div className="p-5 ">
             {!authenticated ? <>You are not logged in</> : <>
-                <div>
-                    <h1>{projectData?.title}</h1>
-                    <p>{projectData?.description}</p>
+                <div className="text-primary_text flex flex-col  p-20 space-y- rounded-2xl border-[1px] border-white/20 ">
+                    <h1 className="w-fit text-5xl capitalize ">{projectData?.title}</h1>
+                    <p className="w-fit">{projectData?.description}</p>
                     <br />
-                    <p>By {projectData?.admin?.firstName} {projectData?.admin?.lastName}</p>
+                    <p className="w-fit">By {projectData?.admin?.firstName} {projectData?.admin?.lastName}</p>
                 </div>
-                <div>
+                <div className="flex items-center justify-center w-full">
                     <Board onCardDragEnd={handleCardMove} disableColumnDrag>
                         {board}
                     </Board>
                 </div>
             </>}
-        </>
+        </div>
     )
 }
 
