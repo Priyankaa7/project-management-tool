@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { getDashboardData } from "../../api";
 import { useDispatch } from "react-redux"
 import { LOGOUT } from "../../redux/const/actionsTypes"
+import Hero from "../hero"
 
 function Dashboard(props) {
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Dashboard(props) {
     }, [])
     return (
         <>
-            {!authenticated && <>You are not logged in</>}
+            {!authenticated && <><Hero/></>}
             {dashboardData?.projectData && dashboardData?.projectData.map(singleProject => <>
                 <div key={singleProject.projectId} onClick={() => { navigate(`/project?projectId=${singleProject.projectId}`) }}>
                     <h2>
