@@ -31,12 +31,12 @@ const index = () => {
 
         <div className='flex flex-col items-center justify-center space-y-3 text-center bg-gradient-to-b w-full from-[#101113] to-black border-white/10 border-[1px] p-5 rounded-2xl'>
           <div><img src="/icon1.png" alt="" /></div>
-          <div className='text-primary_text text-lg'>Interate</div>
+          <div className='text-primary_text text-lg'>Interact</div>
           <div className='text-secondary text-sm'>The ability to quickly set up and customize workflows for just about anything.</div>
         </div>
         <div className='flex flex-col w-full items-center justify-center space-y-3 text-center bg-gradient-to-b from-[#101113] to-black border-white/10 border-[1px] p-5 rounded-2xl'>
           <div><img src="/icon2.png" alt="" /></div>
-          <div className='text-primary_text text-lg'>Colaborate</div>
+          <div className='text-primary_text text-lg'>Collaborate</div>
           <div className='text-secondary text-sm'>Manage projects, organize tasks, and build team spirit—all in one place.</div>
         </div>
         <div className='flex flex-col w-full items-center justify-center space-y-3 text-center bg-gradient-to-b from-[#101113] to-black border-white/10 border-[1px] p-5 rounded-2xl'>
