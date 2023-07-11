@@ -2,15 +2,19 @@ import React from "react";
 import { connect } from "react-redux"
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getProjectData } from "../../api";
+import { getProjectData, postNewTask } from "../../api";
 import { useDispatch } from "react-redux"
 import { LOGOUT } from "../../redux/const/actionsTypes"
 import Board, { moveCard } from "@lourenci/react-kanban";
 import "@lourenci/react-kanban/dist/styles.css";
+import Modal from 'react-modal';
+Modal.setAppElement('#root');
 
 function Project(props) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
     const [authenticated, setAuthenticated] = useState(false);
     const [projectData, setProjectData] = useState({});
     const [board, setBoard] = useState({
@@ -33,6 +37,58 @@ function Project(props) {
             }
         ]
     })
+    const [isOpen, setIsOpen] = useState(false);
+    const [formData, setFormData] = useState({
+        title: "",
+        description: "",
+        deadline: ""
+    });
+    const customStyle = {
+        content: {
+            height: "400px",
+            width: "300px",
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)'
+        }
+    }
+
+    const openModal = () => {
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+
+    async function createNewTask(e) {
+        e.preventDefault();
+        const response = await postNewTask({ ...formData, projectId: params.projectId });
+        setIsOpen(false)
+        const projectId = params.projectId || "";
+        const { data } = await getProjectData(projectId);
+        setProjectData(data);
+        let columns = [...board.columns] || [];
+        data.tasks.forEach((task) => {
+            const columnIndex = columns.findIndex((column) => column.title === task.status);
+            if (columnIndex !== -1) {
+                columns[columnIndex].cards.push({
+                    id: task?._id, title: task?.title, description: (<>
+                        <div>
+                            <p>{task?.description}</p>
+                            <p>Assigned to {task?.assignedTo?.firstName} {task?.assignedTo?.lastName}</p>
+                            <p>Due on {task?.deadline}</p>
+                        </div>
+                    </>)
+                });
+            }
+        });
+        setBoard({ columns: [...columns] })
+    }
+
     useEffect(() => {
         async function getData() {
             try {
@@ -43,8 +99,6 @@ function Project(props) {
                     dispatch({ type: LOGOUT })
                     throw new Error("Log in again")
                 }
-                const urlSearchParams = new URLSearchParams(window.location.search);
-                const params = Object.fromEntries(urlSearchParams.entries());
                 const projectId = params.projectId || "";
                 const { data } = await getProjectData(projectId);
                 setProjectData(data);
@@ -52,13 +106,15 @@ function Project(props) {
                 data.tasks.forEach((task) => {
                     const columnIndex = columns.findIndex((column) => column.title === task.status);
                     if (columnIndex !== -1) {
-                        columns[columnIndex].cards.push({ id: task?._id, title: task?.title, description: (<>
-                            <div>
-                                <p>{task?.description}</p>
-                                <p>Assigned to { task?.assignedTo?.firstName } { task?.assignedTo?.lastName }</p>
-                                <p>Due on {task?.deadline}</p>
-                            </div>
-                        </>) });
+                        columns[columnIndex].cards.push({
+                            id: task?._id, title: task?.title, description: (<>
+                                <div>
+                                    <p>{task?.description}</p>
+                                    <p>Assigned to {task?.assignedTo?.firstName} {task?.assignedTo?.lastName}</p>
+                                    <p>Due on {task?.deadline}</p>
+                                </div>
+                            </>)
+                        });
                     }
                 });
                 setBoard({ columns: [...columns] })
@@ -88,6 +144,26 @@ function Project(props) {
                     <Board onCardDragEnd={handleCardMove} disableColumnDrag>
                         {board}
                     </Board>
+                    <button onClick={openModal}>Open Modal</button>
+                    <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyle}>
+                        <h1>Create a new task</h1>
+                        <form onSubmit={e => createNewTask(e)}>
+                            <p>Task Title</p>
+                            <input type="text" onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }} value={formData.title} />
+                            <p>Task Description</p>
+                            <input type="text" onChange={(e) => { setFormData({ ...formData, description: e.target.value }) }} value={formData.description} />
+                            <p>Deadline</p>
+                            <input
+                                type="date"
+                                value={formData.deadline}
+                                onChange={e => setFormData({ ...formData, deadline: e.target.value })}
+                                format="dd-MM-yyyy"
+                                placeholder="dd-mm-yyyy"
+                            />
+                            <br />
+                            <button type="submit">Create Task</button>
+                        </form>
+                    </Modal>
                 </div>
             </>}
         </div>

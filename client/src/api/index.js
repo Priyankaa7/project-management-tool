@@ -22,5 +22,6 @@ export const signUpGoogle = (accessToken) => API.post("/users/signup", {
 export const getDashboardData = async () => await API.get("/dashboard");
 export const getProjectData = async (projectId) => await API.get(`/project/${projectId}`);
 export const postNewProject = async (projectData) => await API.post(`/project`, {...projectData})
+export const postNewTask = async (taskData) => await API.post(`/task`, {...taskData})
 
 export default API;
