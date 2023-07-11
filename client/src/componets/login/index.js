@@ -49,11 +49,11 @@ function Login() {
                 <h1 className="text-2xl lg:text-3xl">Login</h1>
                 <div className="space-y-5 lg:w-full">
                     <div className="w-full space-y-2">
-                        <label className="text-form_text">Email</label>
+                        <label className="text-form_text">Email (Use "test@gmail.com" for testing)</label>
                         <input className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={e=> setEmail(e.target.value)}  placeholder="Enter your email" type="email" />
                     </div>
                     <div className="w-full space-y-2">
-                        <label className="text-form_text">Password</label>
+                        <label className="text-form_text">Password (Use "password" for testing)</label>
                         <input  className="w-full  p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" onChange={e=> setPassword(e.target.value)} placeholder="Enter your password" type="password" />
                     </div>
                     <div className="w-full space-x-2 flex items-center ">
