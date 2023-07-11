@@ -31,7 +31,7 @@ Before running the application, make sure you have the following software instal
 
 ## Getting Started
 
-To get started with the Taskly, follow these steps:
+To get started with Taskly, follow these steps:
 
 1. Clone the project repository.
 2. Change into the project directory.
@@ -50,11 +50,3 @@ To start the application, follow these steps:
 
 1. Make sure MongoDB is running on your system.
 2. Start the development server.
-
-## Contributing
-
-Contributions to Taskly are welcome and encouraged! If you find any bugs or have suggestions for improvements, please submit an issue or a pull request to the project repository.
-
-## License
-
-Taskly is an open-source software licensed under the MIT license.
