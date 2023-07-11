@@ -1,5 +1,5 @@
 import React from "react";
-import NavStyles from "./Nav.module.css"
+// import NavStyles from "./Nav.module.css"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { useEffect, useState } from "react";
@@ -20,40 +20,39 @@ function Nav(props) {
 
     function handleLogOut(e) {
         e.preventDefault()
-
+        
         dispatch({ type: LOGOUT })
+        setAuthenticated(false)
     }
     return (
-        <nav className={NavStyles.mainNav}>
-            <div>
-                <Link to="/">
-                        <h3>Project Mangement Tool</h3>
-                </Link>
+        <nav className=" backdrop-blur-3xl flex flex-col md:flex-row  z-10  items-center justify-between px-10 py-3  bg-black text-primary_text ">
+            <div className="flex flex-col  justify-center h-fit">
+                <h3 className="text-center text-white hidden md:block text-2xl cursor-pointer"><Link to="/">Project Mangement Tool</Link></h3>
                 {authenticated && <p>Welcome, {JSON.parse(localStorage.getItem("user_info"))?.result?.firstName}</p>}
             </div>
-            <div>
+            <div className="flex justify-center items-center">
                 {authenticated ?
-                    <div className={NavStyles.rightSideNav}>
+                    <div className="flex space-x-5 items-center justify-center">
                         <i class="fa-solid fa-user"></i>
-                        <div>
+                        <div className="flex items-center justify-center">
                             <span className="d-blcok">Account</span>
-                            <div className={NavStyles.container2}>
-                                <Link className={`d-block ${NavStyles.linkBTN}`} to="/account/profile">Profile</Link>
-                                <span className={NavStyles.or}>or</span>
-                                <Link onClick={handleLogOut} className={NavStyles.linkBTN} to="/">Logout</Link>
+                            <div className="flex items-center justify-center space-x-5">
+                                <Link className={`d-block `} to="/account/profile">Profile</Link>
+                                <span className="">or</span>
+                                <Link onClick={handleLogOut}  to="/">Logout</Link>
                             </div>
 
                         </div>
                     </div>
                     :
-                    <div className={NavStyles.rightSideNav}>
-                        <i class="fa-solid fa-user"></i>
-                        <div>
+                    <div className="flex justify-center items-center space-x-10 bg-[#101113] lg:bg-black lg:text-white/40 px-4 py-3 rounded-full" >
+                        <span className="text-lg"><i class="fa-solid fa-user"></i></span>
+                        <div className="flex items-center justify-center space-x-10">
                             <span className="d-blcok">Account</span>
-                            <div className={NavStyles.container2}>
-                                <Link className={`d-block ${NavStyles.linkBTN}`} to="/account/login">Login</Link>
-                                <span className={NavStyles.or}>or</span>
-                                <Link className={NavStyles.linkBTN} to="account/signup">Sign Up</Link>
+                            <div className="flex items-center justify-center space-x-10" >
+                                <Link className={`d-block `} to="/account/login">Login</Link>
+                                {/* <span >or</span> */}
+                                <Link  to="account/signup">Sign Up</Link>
                             </div>
 
                         </div>
