@@ -14,7 +14,7 @@ const index = () => {
 
         <div className='flex flex-col items-center justify-center space-y-10  xl:w-1/2 mx-auto '>
           <h3 className='text-lg underline underline-offset-8 decoration-2 decoration-brand z-10'>Project Management Tool</h3>
-          <h1 className='text-4xl font-bold z-10 lg:text-7xl'>Colaborate and build faster, together</h1>
+          <h1 className='text-4xl font-bold z-10 lg:text-7xl'>Collaborate and build faster, together</h1>
           <h5 className='text-xs w-3/4 text-secondary z-10 lg:text-lg'>Create, share, and get feedback with collaborative boards for rapid development.</h5>
 
           <div className='bg-brand rounded px-3 py-2 z-10'>Get Started</div>
