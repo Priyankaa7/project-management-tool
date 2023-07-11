@@ -89,7 +89,10 @@ function Dashboard(props) {
                 <input className="bg-black border-[1px] border-white/30 outline-none p-2 rounded w-80 text-sm text-secondary" type="search" placeholder="Search Projects..." />
               </div>
             </div>
-            <div className="lg:grid lg:grid-cols-4 md:grid-cols-3 grid grid-cols-1">
+            <div className="flex items-center justify-center px-5 my-10">
+              <button className="text-primary_text border-2 hover:bg-brand hover:text-primary_text shadow-inner shadow-brand border-white/20 rounded-full px-4 py-2 font-bold text-lg " onClick={openModal}>Add Project + </button>
+            </div>
+            <div className="lg:grid lg:grid-cols-4 md:grid-cols-3 grid grid-cols-1  ">
               {dashboardData.projectData.map(singleProject => (
                 <div className="p-5 md:p-0 text-primary_text" key={singleProject.projectId} onClick={() => { navigate(`/project?projectId=${singleProject.projectId}`) }}>
                   <div className={` ${getRandomColorClass()} cursor-pointer to-black bg-gradient-to-b  py-4 px-5 border-2 border-white/10 rounded-2xl flex flex-col items-center justify-center text-center space-y-4`}>
@@ -101,17 +104,36 @@ function Dashboard(props) {
                 </div>
               ))}
             </div>
-            <button onClick={openModal}>Open Modal</button>
-            <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyle}>
-              <h1>Create a new project</h1>
-              <form onSubmit={e => createNewProject(e)}>
-                <p>Project Title</p>
-                <input type="text" onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }} value={formData.title} />
-                <p>Project Description</p>
-                <input type="text" onChange={(e) => { setFormData({ ...formData, description: e.target.value }) }} value={formData.description} />
-                <button type="submit">Create Project</button>
-              </form>
-            </Modal>
+            
+            <div className="relative h-screen hidden">
+              <Modal className="font-[poppins] bg-[#101113] border-2 border-white/10 text-primary_text h-fit w-fit content-center py-5 px-3 rounded-2xl flex flex-col items-center justify-center space-y-8" isOpen={isOpen} onRequestClose={closeModal}
+                style={{
+                  overlay: {
+                    backgroundColor: "rgba(0, 0, 0, 0.8)", // Background color (black) with transparency
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                  },
+                  content: {
+                    backgroundColor: "#101113", // Modal container background color
+                  },
+                }}
+              >
+
+                <h1 className="text-2xl lg:text-3xl underline underline-offset-8 decoration-brand px-3 ">Create a Project</h1>
+                <form className="flex flex-col items-center justify-center space-y-8" onSubmit={e => createNewProject(e)}>
+                  <div className="space-y-2 w-full">
+                    <p className="text-form_text text-sm">Project Title</p>
+                    <input className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" type="text" onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }} value={formData.title} />
+                  </div>
+                  <div className="space-y-2 w-full">
+                    <p className="text-form_text text-sm">Project Description</p>
+                    <input className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" type="text" onChange={(e) => { setFormData({ ...formData, description: e.target.value }) }} value={formData.description} />
+                  </div>
+                  <button className="text-black text-lg font-semibold bg-white px-3 py-2 rounded" type="submit">Create Project</button>
+                </form>
+              </Modal>
+            </div>
           </div>
         ) : (
           <div className="flex items-center justify-center h-screen bg-black">
@@ -123,6 +145,6 @@ function Dashboard(props) {
   )
 }
 
-const mapStateToProps = state => ({auth: state.auth });
+const mapStateToProps = state => ({ auth: state.auth });
 
-  export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Dashboard);
