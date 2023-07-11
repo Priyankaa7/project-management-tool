@@ -81,7 +81,7 @@ function Dashboard(props) {
     <div>
       {!authenticated && <><Hero /></>}
       {authenticated && (
-        dashboardData?.projectData && dashboardData.projectData.length > 0 ? (
+        dashboardData?.projectData ? (
           <div className="h-screen overflow-y-scroll">
             <div className="bg-black md:my-5 md:py-10 p-5 space-y-10 md:px-40 md:mx-10 flex flex-col md:flex-row md:justify-between items-center">
               <h1 className="w-fit text-7xl text-primary_text font-bold underline underline-offset-8 decoration-brand">Projects</h1>
@@ -93,7 +93,7 @@ function Dashboard(props) {
               <button className="text-primary_text border-2 hover:bg-brand hover:text-primary_text shadow-inner shadow-brand border-white/20 rounded-full px-4 py-2 font-bold text-lg " onClick={openModal}>Add Project + </button>
             </div>
             <div className="lg:grid lg:grid-cols-4 md:grid-cols-3 grid grid-cols-1  ">
-              {dashboardData.projectData.map(singleProject => (
+              {dashboardData.projectData.length > 0 && dashboardData.projectData.map(singleProject => (
                 <div className="p-5 md:p-0 text-primary_text" key={singleProject.projectId} onClick={() => { navigate(`/project?projectId=${singleProject.projectId}`) }}>
                   <div className={` ${getRandomColorClass()} cursor-pointer to-black bg-gradient-to-b  py-4 px-5 border-2 border-white/10 rounded-2xl flex flex-col items-center justify-center text-center space-y-4`}>
                     <h2 className="capitalize text-3xl">
