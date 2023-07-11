@@ -59,9 +59,10 @@ function Dashboard(props) {
     getData();
   }, [])
 
-  async function createNewProject() {
+  async function createNewProject(e) {
+    e.preventDefault()
     const response = await postNewProject(formData);
-
+    navigate(`/project?projectId=${response.data.projectId}`)
   }
 
   function getRandomColorClass() {
@@ -103,7 +104,7 @@ function Dashboard(props) {
         <button onClick={openModal}>Open Modal</button>
         <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyle}>
           <h1>Create a new project</h1>
-          <form onSubmit={createNewProject}>
+          <form onSubmit={e => createNewProject(e)}>
             <p>Project Title</p>
             <input type="text" onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }} value={formData.title} />
             <p>Project Description</p>

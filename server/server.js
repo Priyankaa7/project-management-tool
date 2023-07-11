@@ -24,7 +24,7 @@ app.use(morgan(function (tokens, req, res) {
 
 app.use("/users", userRoutes)
 app.use("", dashboardRoutes)
-app.use("", projectRoutes)
+app.use("/", projectRoutes)
 
 const PORT = process.env.PORT || 5000;
 const MONGOOSE_URL = process.env.MONGO_URI;
