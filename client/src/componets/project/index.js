@@ -96,8 +96,6 @@ function Project(props) {
                     setAuthenticated(true)
                 } else {
                     setAuthenticated(false)
-                    dispatch({ type: LOGOUT })
-                    throw new Error("Log in again")
                 }
                 const projectId = params.projectId || "";
                 const { data } = await getProjectData(projectId);
@@ -124,6 +122,14 @@ function Project(props) {
         }
         getData();
     }, [])
+
+    useEffect(() => {
+        if (props.auth.authData) {
+            setAuthenticated(true)
+        } else {
+            setAuthenticated(false)
+        }
+    }, [props?.auth?.authData])
     function handleCardMove(_card, source, destination) {
         const updatedBoard = moveCard(board, source, destination);
         setBoard(updatedBoard);

@@ -20,13 +20,14 @@ function Nav(props) {
 
     function handleLogOut(e) {
         e.preventDefault()
-
+        
         dispatch({ type: LOGOUT })
+        setAuthenticated(false)
     }
     return (
         <nav className=" backdrop-blur-3xl flex flex-col md:flex-row  z-10  items-center justify-between px-10 py-3  bg-black text-primary_text ">
             <div className="flex flex-col  justify-center h-fit">
-                <h3 className="text-center text-white hidden md:block text-2xl cursor-pointer"><a href="/">Project Mangement Tool</a></h3>
+                <h3 className="text-center text-white hidden md:block text-2xl cursor-pointer"><Link to="/">Project Mangement Tool</Link></h3>
                 {authenticated && <p>Welcome, {JSON.parse(localStorage.getItem("user_info"))?.result?.firstName}</p>}
             </div>
             <div className="flex justify-center items-center">

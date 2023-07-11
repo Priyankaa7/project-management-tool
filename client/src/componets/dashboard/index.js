@@ -53,8 +53,6 @@ function Dashboard(props) {
           setAuthenticated(true)
         } else {
           setAuthenticated(false)
-          dispatch({ type: LOGOUT })
-          throw new Error("Log in again")
         }
         const { data } = await getDashboardData();
         setDashboardData(data);
@@ -64,6 +62,14 @@ function Dashboard(props) {
     }
     getData();
   }, [])
+
+  useEffect(() => {
+    if (props.auth.authData) {
+      setAuthenticated(true)
+    } else {
+      setAuthenticated(false)
+    }
+  }, [props?.auth?.authData])
 
   async function createNewProject(e) {
     e.preventDefault()
