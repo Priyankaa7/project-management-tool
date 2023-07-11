@@ -107,7 +107,7 @@ function Project(props) {
                         columns[columnIndex].cards.push({
                             id: task?._id, title: task?.title, description: (<>
                                 <div>
-                                    <p>{task?.description}</p>
+                                    <p className="">{task?.description}</p>
                                     <p>Assigned to {task?.assignedTo?.firstName} {task?.assignedTo?.lastName}</p>
                                     <p>Due on {task?.deadline}</p>
                                 </div>
@@ -138,36 +138,58 @@ function Project(props) {
         // console.log({board})
     }, [board])
     return (
-        <div className="p-5 ">
+        <div className="p-5 h-full space-y-40 flex flex-col items-center justify-center">
             {!authenticated ? <>You are not logged in</> : <>
-                <div className="text-primary_text flex flex-col  p-20 space-y- rounded-2xl border-[1px] border-white/20 ">
+                <div className="text-primary_text flex flex-col space-y-2 p-20 space-y- rounded-2xl border-[1px] border-white/20 bg-cover   w-3/4 bg-[url('../public/bg1.jpg')]">
                     <h1 className="w-fit text-5xl capitalize ">{projectData?.title}</h1>
-                    <p className="w-fit">{projectData?.description}</p>
+                    <p className="w-fit text-secondary">{projectData?.description}</p>
                     <br />
-                    <p className="w-fit">By {projectData?.admin?.firstName} {projectData?.admin?.lastName}</p>
+                    <div className="flex items-center justify-start space-x-5">
+                    <p className="w-fit px-3 py-2 border-2 border-white/10 rounded bg-black" > {projectData?.admin?.firstName} {projectData?.admin?.lastName}</p>
+                    <button className="text-primary_text border-2 hover:bg-brand hover:text-primary_text  border-white/20 rounded px-4 py-2 font-bold text-lg" onClick={openModal}>Add Task</button>
+                    </div>
                 </div>
-                <div className="flex items-center justify-center w-full">
+
+                <div className="flex flex-col items-center justify-center w-full space-y-10">
                     <Board onCardDragEnd={handleCardMove} disableColumnDrag>
                         {board}
                     </Board>
-                    <button onClick={openModal}>Open Modal</button>
-                    <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyle}>
-                        <h1>Create a new task</h1>
-                        <form onSubmit={e => createNewTask(e)}>
-                            <p>Task Title</p>
-                            <input type="text" onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }} value={formData.title} />
-                            <p>Task Description</p>
-                            <input type="text" onChange={(e) => { setFormData({ ...formData, description: e.target.value }) }} value={formData.description} />
-                            <p>Deadline</p>
-                            <input
-                                type="date"
-                                value={formData.deadline}
-                                onChange={e => setFormData({ ...formData, deadline: e.target.value })}
-                                format="dd-MM-yyyy"
-                                placeholder="dd-mm-yyyy"
-                            />
+                    <Modal
+                        style={{
+                            overlay: {
+                                backgroundColor: "rgba(0, 0, 0, 0.8)", // Background color (black) with transparency
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center"
+                            },
+                            content: {
+                                backgroundColor: "#101113", // Modal container background color
+                            },
+                        }}
+                        className="font-[poppins] bg-[#101113] border-2 border-white/10 text-primary_text h-fit w-fit content-center py-5 px-5 rounded-2xl flex flex-col items-center justify-center space-y-8" isOpen={isOpen} onRequestClose={closeModal} >
+                        <h1 className="text-2xl lg:text-3xl underline underline-offset-8 decoration-brand px-3  ">New Task</h1>
+                        <form className="flex flex-col items-center justify-center space-y-8 w-full" onSubmit={e => createNewTask(e)}>
+                            <div className="space-y-2 w-full">
+                                <p className="text-form_text text-sm">Task Title</p>
+                                <input className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" type="text" onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }} value={formData.title} />
+                            </div>
+                            <div className="space-y-2 w-full">
+                                <p className="text-form_text text-sm">Task Description</p>
+                                <input className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10" type="text" onChange={(e) => { setFormData({ ...formData, description: e.target.value }) }} value={formData.description} />
+                            </div>
+                            <div className="space-y-2 w-full">
+                                <p className="text-form_text text-sm">Deadline</p>
+                                <input
+                                    className="w-full p-2 text-primary_text outline-none focus:border-white/50 rounded bg-transparent border-[1px] border-white/10"
+                                    type="date"
+                                    value={formData.deadline}
+                                    onChange={e => setFormData({ ...formData, deadline: e.target.value })}
+                                    format="dd-MM-yyyy"
+                                    placeholder="dd-mm-yyyy"
+                                />
+                            </div>
                             <br />
-                            <button type="submit">Create Task</button>
+                            <button className="text-black text-lg font-semibold bg-white px-3 py-2 rounded" type="submit">Create Task</button>
                         </form>
                     </Modal>
                 </div>
