@@ -27,7 +27,7 @@ app.use("/users", userRoutes)
 app.use("", dashboardRoutes)
 app.use("/", projectRoutes)
 app.use("/", taskRoutes)
-
+app.get("/", (req, res) => { res.send({ err: false, msg: "server is online" }) })
 const PORT = process.env.PORT || 5000;
 const MONGOOSE_URL = process.env.MONGO_URI;
 
