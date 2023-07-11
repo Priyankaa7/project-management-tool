@@ -3,7 +3,7 @@
 Taskly is a web application designed to facilitate project management tasks. It allows users to efficiently manage and track their projects, tasks, and team members.
 
 ## Features
-asklyhe Project Management Tool offers the following features:
+Taskly offers the following features:
 
 - User authentication and authorization.
 - Creation and management of projects.
