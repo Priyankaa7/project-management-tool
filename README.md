@@ -1,10 +1,9 @@
-# Project Management Tool
+# Taskly - A Project Management Tool
 
-The Project Management Tool is a web application designed to facilitate project management tasks. It allows users to efficiently manage and track their projects, tasks, and team members.
+Taskly is a web application designed to facilitate project management tasks. It allows users to efficiently manage and track their projects, tasks, and team members.
 
 ## Features
-
-The Project Management Tool offers the following features:
+asklyhe Project Management Tool offers the following features:
 
 - User authentication and authorization.
 - Creation and management of projects.
@@ -16,7 +15,7 @@ The Project Management Tool offers the following features:
 
 ## Technologies Used
 
-The Project Management Tool is built using the following technologies:
+Taskly is built using the following technologies:
 
 - MongoDB: A NoSQL database used for data storage.
 - Express.js: A web application framework for Node.js, used for building the backend API.
@@ -32,7 +31,7 @@ Before running the application, make sure you have the following software instal
 
 ## Getting Started
 
-To get started with the Project Management Tool, follow these steps:
+To get started with the Taskly, follow these steps:
 
 1. Clone the project repository.
 2. Change into the project directory.
@@ -54,8 +53,8 @@ To start the application, follow these steps:
 
 ## Contributing
 
-Contributions to the Project Management Tool are welcome and encouraged! If you find any bugs or have suggestions for improvements, please submit an issue or a pull request to the project repository.
+Contributions to Taskly are welcome and encouraged! If you find any bugs or have suggestions for improvements, please submit an issue or a pull request to the project repository.
 
 ## License
 
-The Project Management Tool is open-source software licensed under the MIT license.
+Taskly is an open-source software licensed under the MIT license.
